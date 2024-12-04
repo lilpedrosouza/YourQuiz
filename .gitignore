@@ -1,2 +1,4 @@
 .env
 teste.py
+venv/
+.vscode/
