@@ -1,0 +1,326 @@
+* {
+    font-family: "Orbitron", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000019;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.star span {
+    width: 1vw;
+    height: 1vw;
+    background: #e6e3e3;
+    margin: 0 0.3vw;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.2vw #e6e3e3,
+                0 0 2vw #e6e3e3,
+                0 0 4.5vw #e6e3e3;
+    animation: animar calc(250s / var(--i)) linear infinite;
+}
+
+@keyframes animar {
+    0% {
+        transform: translateY(100vh) scale(0.1);
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(0.3);
+    }
+}
+
+.fotmQuiz {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px; 
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 0.1vw #ccc,
+                 0 0 0.3vw #ccc,
+                 0 0 0.6vw #ccc,
+                 0 0 1.5vw #080826,
+                 0 0 3vw #080826,
+                 0 0 6vw #080826,
+                 0 0 0.1vw #080826,
+                 0 0 0.3vw #080826,
+                 0 0 0.6vw #080826;
+}
+
+#tema {
+    width: 100%;
+    max-width: 600px;
+    height: 2rem;
+    padding: 0.5rem;
+    border: 2px solid #c3c2c2;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease;
+}
+
+#tema:hover {
+    box-shadow: 0 0 0.1vw #ccc,
+    0 0 0.3vw #ccc,
+    0 0 0.6vw #ccc,
+    0 0 1.5vw #080826,
+    0 0 3vw #080826,
+    0 0 6vw #080826,
+    0 0 0.1vw #080826,
+    0 0 0.3vw #080826,
+    0 0 0.6vw #080826;
+}
+
+#tema:focus {
+    border-color: #a0a0a0;
+    box-shadow: 0 0 0.1vw #ccc,
+    0 0 0.3vw #ccc,
+    0 0 0.6vw #ccc,
+    0 0 1.5vw #080826,
+    0 0 3vw #080826,
+    0 0 6vw #080826,
+    0 0 0.1vw #080826,
+    0 0 0.3vw #080826,
+    0 0 0.6vw #080826;
+    background-color: #0a0a32;
+    opacity: 0.8;
+}
+
+.dificuldade {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.dificuldade input {
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+
+
+.dificuldade label {
+    display: inline-block;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
+}
+
+.dificuldade label:hover {
+    text-shadow: 0 0 0.1vw #ccc,
+                 0 0 0.3vw #ccc,
+                 0 0 0.6vw #ccc,
+                 0 0 1.5vw #080826,
+                 0 0 3vw #080826,
+                 0 0 6vw #080826,
+                 0 0 0.1vw #080826,
+                 0 0 0.3vw #080826,
+                 0 0 0.6vw #080826;
+
+}
+
+
+
+.dificuldade p {
+    margin: 0 1rem 1rem 0;
+    flex-basis: 100%;
+    font-size: 1.3rem;
+}
+
+button {
+    margin-top: -1.5rem;
+    border: 2px solid #c3c2c2;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: text-shadow 0.3s ease;
+}
+
+button:hover {
+    border-color: #a0a0a0;
+    background-color: #0a0a32;
+    cursor: pointer;
+    text-shadow: 0 0 0.1vw #ccc,
+    0 0 0.3vw #ccc,
+    0 0 0.6vw #ccc,
+    0 0 1.5vw #080826,
+    0 0 3vw #080826,
+    0 0 6vw #080826,
+    0 0 0.1vw #080826,
+    0 0 0.3vw #080826,
+    0 0 0.6vw #080826;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* AREA DO QUIZ */
+
+#carregando p {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 
+        0 0 0.1vw #ccc,
+        0 0 0.3vw #ccc,
+        0 0 0.6vw #ccc,
+        0 0 1.5vw #080826,
+        0 0 3vw #080826,
+        0 0 6vw #080826,
+        0 0 0.1vw #080826,
+        0 0 0.3vw #080826,
+        0 0 0.6vw #080826;
+    animation: brilho 1s infinite alternate ease-in-out;
+}
+
+@keyframes brilho {
+    0% {
+        text-shadow: 
+            0 0 0.1vw #ccc,
+            0 0 0.3vw #ccc,
+            0 0 0.6vw #ccc,
+            0 0 1.5vw #080826,
+            0 0 3vw #080826,
+            0 0 6vw #080826,
+            0 0 0.1vw #080826,
+            0 0 0.3vw #080826,
+            0 0 0.6vw #080826;
+        opacity: 1;
+    }
+    50% {
+        text-shadow: 
+            0 0 0.2vw #fff,
+            0 0 0.5vw #fff,
+            0 0 1vw #fff,
+            0 0 2vw #00f,
+            0 0 4vw #00f,
+            0 0 8vw #00f,
+            0 0 0.2vw #00f,
+            0 0 0.5vw #00f,
+            0 0 1vw #00f;
+        opacity: 0.8;
+    }
+    100% {
+        text-shadow: 
+            0 0 0.1vw #ccc,
+            0 0 0.3vw #ccc,
+            0 0 0.6vw #ccc,
+            0 0 1.5vw #080826,
+            0 0 3vw #080826,
+            0 0 6vw #080826,
+            0 0 0.1vw #080826,
+            0 0 0.3vw #080826,
+            0 0 0.6vw #080826;
+        opacity: 1;
+    }
+}
+
+
+.quiz-container {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.alternativas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.opcao {
+    background: #1e1e5e;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.opcao:hover {
+    transform: scale(1.1);
+    background: #30308c;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+
+    #tema {
+        font-size: 0.8rem; /* Ajusta o tamanho da fonte do input */
+    }
+
+    button {
+        font-size: 0.8rem; /* Ajusta o tamanho do botão */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem; /* Reduz ainda mais o tamanho da fonte */
+    }
+
+    .fotmQuiz {
+        padding: 1rem; /* Menos padding em telas menores */
+    }
+}
