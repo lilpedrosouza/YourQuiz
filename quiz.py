@@ -11,10 +11,10 @@ app = Flask(__name__)
 client = openai.Client()
 
 
-
 @app.route("/")
 def pagina_principal():
     return render_template("index.html")
+
 
 
 
