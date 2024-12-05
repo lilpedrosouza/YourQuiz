@@ -300,6 +300,90 @@ button:active {
     background: #30308c;
 }
 
+.resultadoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 1.25rem;
+    margin-top: -1.5rem;
+    outline: none;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: text-shadow 0.3s ease;
+    text-align: center;
+}
+
+.resultadoContainer h2 {
+    font-size: 2rem;
+    text-shadow: 0 0 0.1vw #ccc,
+                 0 0 0.3vw #ccc,
+                 0 0 0.6vw #ccc,
+                 0 0 1.5vw #080826,
+                 0 0 3vw #080826,
+                 0 0 6vw #080826,
+                 0 0 0.1vw #080826,
+                 0 0 0.3vw #080826,
+                 0 0 0.6vw #080826;
+    margin-bottom: 1.25em;
+}
+
+.resultadoContainer p {
+    font-size: 1rem;
+    margin: 0.6rem 0rem;
+    text-shadow: 0 0 0.1vw #ccc,
+                 0 0 0.3vw #ccc,
+                 0 0 0.6vw #ccc,
+                 0 0 1.5vw #080826,
+                 0 0 3vw #080826,
+                 0 0 6vw #080826,
+                 0 0 0.1vw #080826,
+                 0 0 0.3vw #080826,
+                 0 0 0.6vw #080826;
+}
+
+.resultadoContainer button {
+    margin-top: 1.25rem;
+    border: 0.125 solid #c3c2c2;
+    border-radius: 0.3rem;
+    outline: none;
+    background: none;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: text-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.resultadoContainer button:hover {
+    border-color: #a0a0a0;
+    background-color: #0a0a32;
+    cursor: pointer;
+    text-shadow: 0 0 0.1vw #ccc,
+    0 0 0.3vw #ccc,
+    0 0 0.6vw #ccc,
+    0 0 1.5vw #080826,
+    0 0 3vw #080826,
+    0 0 6vw #080826,
+    0 0 0.1vw #080826,
+    0 0 0.3vw #080826,
+    0 0 0.6vw #080826;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media Queries */
 @media (max-width: 768px) {
     h1 {

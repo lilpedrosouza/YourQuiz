@@ -1,82 +1,97 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import json
 import openai
-from openai import OpenAIError
 from dotenv import load_dotenv, find_dotenv
 
+# Carregar variáveis de ambiente
 _ = load_dotenv(find_dotenv())
 
 app = Flask(__name__)
-
-client = openai.Client()
-
 
 @app.route("/")
 def pagina_principal():
     return render_template("index.html")
 
-
-
-
 @app.route("/quiz", methods=["POST"])
 def quiz():
     dados = request.get_json()
-    tema = dados.get("tema")
-    dificuldade = dados.get("dificuldade")
+    tema = dados.get("tema", "Tema genérico")
+    dificuldade = dados.get("dificuldade", "intermediário")
     
+    # Prompt para o ChatGPT
     prompt = f"""
-    Gere uma pergunta de quiz sobre o tema "{tema}" de nível "{dificuldade}".
-    Retorne no formato JSON:
-    {{
-      "pergunta": "Aqui está a pergunta gerada",
-      "alternativas": ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
-      "correta": "Opção correta"
-    }}
+    Você é um gerador de quizzes. Gere 10 perguntas de quiz sobre o tema "{tema}" com nível de dificuldade "{dificuldade}".
+    Cada pergunta deve conter:
+    - Um texto para a pergunta.
+    - Quatro alternativas únicas e consistentes.
+    - A resposta correta.
+    O JSON deve seguir estritamente este formato:
+
+    [
+        {{
+            "id": 1,
+            "pergunta": "Aqui está a pergunta gerada para o tema '{tema}'",
+            "alternativas": ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+            "correta": "Opção correta"
+        }},
+        {{
+            "id": 2,
+            "pergunta": "Outra pergunta para o tema '{tema}'",
+            "alternativas": ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+            "correta": "Opção correta"
+        }},
+        ...
+        {{
+            "id": 10,
+            "pergunta": "Décima pergunta para o tema '{tema}'",
+            "alternativas": ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+            "correta": "Opção correta"
+        }}
+    ]
+
+    Retorne apenas o JSON no formato especificado acima, sem explicações adicionais.
     """
+
     try:
+        # Chamando o OpenAI API
         response = openai.chat.completions.create(
-            model="gpt-4",
-            messages=[{"role": "system", "content": "Você é um gerador de quizzes."},
-                        {"role": "user", "content": prompt}],
-            temperature=0.7
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Você é um gerador de quizzes."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.5
         )
         
-        print(response)
-        # Acessando o conteúdo correto do objeto retornado
-        message_content = response.choices[0].message.content
-        
-        # Obtemos o JSON inicial gerado pela API
+        # Extraindo o conteúdo do JSON
+        message_content = response.choices[0].message.content.strip()
         quiz_data_raw = json.loads(message_content)
         
-        quiz_data = {
-            "pergunta": quiz_data_raw["pergunta"],
-            "alternativas": [
-                { "texto": alternativa, "correta": alternativa == quiz_data_raw["correta"] }
-                for alternativa in quiz_data_raw["alternativas"]
-            ]
-        }
-        # Passar dados para o HTML
-        return json.dumps(quiz_data, ensure_ascii=False), 200, {'Content-Type': 'application/json'}
-    
-    except OpenAIError as e:
-        print(f"Erro: {e}")
-        return json.dumps({"error": "Erro ao gerar o quiz. Tente novamente."}, ensure_ascii=False), 500, {'Content-Type': 'application/json'}
- 
+        # Estruturando o JSON para o front-end
+        quiz_data = [
+            {
+                "id": pergunta["id"],
+                "pergunta": pergunta["pergunta"],
+                "alternativas": [
+                    {"texto": alternativa, "correta": alternativa == pergunta["correta"]}
+                    for alternativa in pergunta["alternativas"]
+                ]
+            }
+            for pergunta in quiz_data_raw
+        ]
+        
+        
+        # Retornando o JSON estruturado
+        print(quiz_data)
+        return jsonify(quiz_data), 200
 
+    except json.JSONDecodeError as e:
+        print(f"Erro ao processar JSON gerado: {e}")
+        return jsonify({"error": "Erro ao gerar o quiz. O formato do JSON gerado é inválido."}), 500
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    except Exception as e:
+        print(f"Erro inesperado: {e}")
+        return jsonify({"error": "Erro inesperado ao gerar o quiz. Tente novamente mais tarde."}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
