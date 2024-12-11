@@ -53,15 +53,25 @@ def quiz():
     """
 
     try:
-        # Chamando o OpenAI API
-        response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Você é um gerador de quizzes."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.5
-        )
+        if dificuldade == "basico" or dificuldade == "intermediario":
+            # Chamando o OpenAI API
+            response = openai.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "Você é um gerador de quizzes."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.5
+            )
+        else:
+            response = openai.chat.completions.create(
+                model="gpt-4-turbo",
+                messages=[
+                    {"role": "system", "content": "Você é um gerador de quizzes."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.5
+            )
         
         # Extraindo o conteúdo do JSON
         message_content = response.choices[0].message.content.strip()
