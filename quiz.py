@@ -3,7 +3,6 @@ import json
 import openai
 from dotenv import load_dotenv, find_dotenv
 
-# Carregar variáveis de ambiente
 _ = load_dotenv(find_dotenv())
 
 app = Flask(__name__)
@@ -18,7 +17,6 @@ def quiz():
     tema = dados.get("tema", "Tema genérico")
     dificuldade = dados.get("dificuldade", "intermediário")
     
-    # Prompt para o ChatGPT
     prompt = f"""
     Você é um gerador de quizzes. Gere 10 perguntas de quiz sobre o tema "{tema}" com nível de dificuldade "{dificuldade}".
     Cada pergunta deve conter:
@@ -53,25 +51,16 @@ def quiz():
     """
 
     try:
-        if dificuldade == "basico" or dificuldade == "intermediario":
-            # Chamando o OpenAI API
-            response = openai.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Você é um gerador de quizzes."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.5
+        model = "gpt-3.5-turbo" if dificuldade in ["basico", "intermediario"] else "gpt-4-turbo"
+        response = openai.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": "Você é um gerador de quizzes."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.5
             )
-        else:
-            response = openai.chat.completions.create(
-                model="gpt-4-turbo",
-                messages=[
-                    {"role": "system", "content": "Você é um gerador de quizzes."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.5
-            )
+
         
         # Extraindo o conteúdo do JSON
         message_content = response.choices[0].message.content.strip()

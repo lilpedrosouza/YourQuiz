@@ -347,7 +347,7 @@ button:active {
 
 .resultadoContainer button {
     margin-top: 1.25rem;
-    border: 0.125 solid #c3c2c2;
+    border: 0.125rem solid #c3c2c2;
     border-radius: 0.3rem;
     outline: none;
     background: none;
@@ -355,6 +355,7 @@ button:active {
     font-size: 1.1rem;
     transition: text-shadow 0.3s ease;
     cursor: pointer;
+    z-index: 10;
 }
 
 .resultadoContainer button:hover {
