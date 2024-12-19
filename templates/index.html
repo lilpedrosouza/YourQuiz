@@ -12,114 +12,116 @@
     <title>Your Quiz</title>
 </head>
 
-<body>
-    <!-- Estrelas do fundo  -->
-    <div class="container">
-        <div class="star">
-            <span style="--i:12"></span>
-            <span style="--i:34"></span>
-            <span style="--i:7"></span>
-            <span style="--i:50"></span>
-            <span style="--i:18"></span>
-            <span style="--i:29"></span>
-            <span style="--i:41"></span>
-            <span style="--i:1"></span>
-            <span style="--i:25"></span>
-            <span style="--i:43"></span>
-            <span style="--i:15"></span>
-            <span style="--i:28"></span>
-            <span style="--i:33"></span>
-            <span style="--i:6"></span>
-            <span style="--i:47"></span>
-            <span style="--i:22"></span>
-            <span style="--i:38"></span>
-            <span style="--i:19"></span>
-            <span style="--i:52"></span>
-            <span style="--i:4"></span>
-            <span style="--i:30"></span>
-            <span style="--i:3"></span>
-            <span style="--i:36"></span>
-            <span style="--i:10"></span>
-            <span style="--i:45"></span>
-            <span style="--i:24"></span>
-            <span style="--i:27"></span>
-            <span style="--i:53"></span>
-            <span style="--i:11"></span>
-            <span style="--i:42"></span>
-            <span style="--i:9"></span>
-            <span style="--i:58"></span>
-            <span style="--i:14"></span>
-            <span style="--i:39"></span>
-            <span style="--i:21"></span>
-            <span style="--i:60"></span>
-            <span style="--i:5"></span>
-            <span style="--i:26"></span>
-            <span style="--i:37"></span>
-            <span style="--i:16"></span>
-            <span style="--i:54"></span>
-            <span style="--i:8"></span>
-            <span style="--i:46"></span>
-            <span style="--i:40"></span>
-            <span style="--i:2"></span>
-            <span style="--i:61"></span>
-            <span style="--i:35"></span>
-            <span style="--i:55"></span>
-            <span style="--i:13"></span>
-            <span style="--i:48"></span>
-            <span style="--i:20"></span>
-            <span style="--i:23"></span>
-            <span style="--i:59"></span>
-            <span style="--i:49"></span>
-            <span style="--i:17"></span>
-            <span style="--i:62"></span>
-            <span style="--i:44"></span>
-            <span style="--i:8"></span>
-            <span style="--i:59"></span>
-            <span style="--i:63"></span>
-            <span style="--i:45"></span>
-            <span style="--i:26"></span>
-            <span style="--i:14"></span>
-        </div>
-
-        <!-- Forms com o tema e regas do quiz, pensando em add a dificuldade 
-        (Pensar se é viável colocar quantidade de questões) -->
-        <form action="/quiz" class="fotmQuiz" id="formQuiz" method="POST">
-            <h1>YOUR QUIZ</h1>
-            <input type="text" name="tema" id="tema" placeholder="Digite o tema do seu QUIZ." required>  
-            <div class="dificuldade">
-                <p>Dificuldade do Quiz:</p>
-                <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="basico"> Básico</label>
-                <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="intermediario"> Intermediário</label>
-                <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="dificil"> Difícil</label>
-                <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="especialista"> Especialista</label>
+        <body>
+            <!-- Estrelas do fundo  -->
+            <div class="container">
+                <div class="star">
+                    <span style="--i:12"></span>
+                    <span style="--i:34"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:50"></span>
+                    <span style="--i:18"></span>
+                    <span style="--i:29"></span>
+                    <span style="--i:41"></span>
+                    <span style="--i:1"></span>
+                    <span style="--i:25"></span>
+                    <span style="--i:43"></span>
+                    <span style="--i:15"></span>
+                    <span style="--i:28"></span>
+                    <span style="--i:33"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:47"></span>
+                    <span style="--i:22"></span>
+                    <span style="--i:38"></span>
+                    <span style="--i:19"></span>
+                    <span style="--i:52"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:30"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:36"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:45"></span>
+                    <span style="--i:24"></span>
+                    <span style="--i:27"></span>
+                    <span style="--i:53"></span>
+                    <span style="--i:11"></span>
+                    <span style="--i:42"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:58"></span>
+                    <span style="--i:14"></span>
+                    <span style="--i:39"></span>
+                    <span style="--i:21"></span>
+                    <span style="--i:60"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:26"></span>
+                    <span style="--i:37"></span>
+                    <span style="--i:16"></span>
+                    <span style="--i:54"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:46"></span>
+                    <span style="--i:40"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:61"></span>
+                    <span style="--i:35"></span>
+                    <span style="--i:55"></span>
+                    <span style="--i:13"></span>
+                    <span style="--i:48"></span>
+                    <span style="--i:20"></span>
+                    <span style="--i:23"></span>
+                    <span style="--i:59"></span>
+                    <span style="--i:49"></span>
+                    <span style="--i:17"></span>
+                    <span style="--i:62"></span>
+                    <span style="--i:44"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:59"></span>
+                    <span style="--i:63"></span>
+                    <span style="--i:45"></span>
+                    <span style="--i:26"></span>
+                    <span style="--i:14"></span>
+                </div>
             </div>
-            <button type="submit" id="btnStart">Começar Quiz</button>
-        </form>
-    
-        <!--Tela de carregamento-->
-        <div id="carregando" class="carregando" style="display: none;">
-            <p>Criando o seu quiz...</p>
-        </div>
-    </div>
 
-    <!--Area do quiz-->
-    <div class="quiz-container" style="display: none;">
-        <h1 id="pergunta"></h1>
-        <div class="alternativas">
-            <div class="opcao"></div>
-            <div class="opcao"></div>
-            <div class="opcao"></div>
-            <div class="opcao"></div>
-        </div>
-    </div>
+            <!-- Forms com o tema e regas do quiz, pensando em add a dificuldade 
+            (Pensar se é viável colocar quantidade de questões) -->
+            <form action="/quiz" class="fotmQuiz" id="formQuiz" method="POST">
+                <h1>YOUR QUIZ</h1>
+                <input type="text" name="tema" id="tema" placeholder="Digite o tema do seu QUIZ." required>  
+                <div class="dificuldade">
+                    <p>Dificuldade do Quiz:</p>
+                    <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="basico"> Básico</label>
+                    <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="intermediario"> Intermediário</label>
+                    <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="dificil"> Difícil</label>
+                    <label><input class="dificuldadeInput" required type="radio" name="dificuldade" value="especialista"> Especialista</label>
+                </div>
+                <button type="submit" id="btnStart">Começar Quiz</button>
+            </form>
+        
+            <!--Tela de carregamento-->
+            <div id="carregando" class="carregando" style="display: none;">
+                <p>Criando o seu quiz...</p>
+            </div>
+        
 
-    <!--Tabela de resultados-->
-    <div id="resultadoContainer" class="resultadoContainer" style="display: none;">
-        <h2>Resultados</h2>
-        <p id="acertos"></p>
-        <p id="erros"></p>
-        <button id="reiniciarQuizButton" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
-    </div>
+            <!--Area do quiz-->
+            <div class="quiz-container" style="display: none;">
+                <h1 id="pergunta"></h1>
+                <div class="alternativas">
+                    <div class="opcao"></div>
+                    <div class="opcao"></div>
+                    <div class="opcao"></div>
+                    <div class="opcao"></div>
+                </div>
+            </div>
+
+            <!--Tabela de resultados-->
+            <div id="resultadoContainer" class="resultadoContainer" style="display: none;">
+                <h2>Resultados</h2>
+                <p id="acertos"></p>
+                <p id="erros"></p>
+                <button id="reiniciarQuizBtn" onclick="resetQuiz()">Reiniciar Quiz</button>
+            </div>
+        
 
 
 
@@ -128,6 +130,6 @@
 
 
 
-</body>
-<script src="../static/js/index.js"></script>
+        </body>
+    <script src="../static/js/index.js"></script>
 </html>

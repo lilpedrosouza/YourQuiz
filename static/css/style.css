@@ -3,6 +3,24 @@
     box-sizing: border-box;
 }
 
+:root {
+    --text-shadow-default: 
+        0 0 0.1vw #ccc,
+        0 0 0.3vw #ccc,
+        0 0 0.6vw #ccc,
+        0 0 1.5vw #080826,
+        0 0 3vw #080826,
+        0 0 6vw #080826;
+
+    --text-shadow-hover: 
+        0 0 0.2vw #fff,
+        0 0 0.5vw #fff,
+        0 0 1vw #fff,
+        0 0 2vw #00f,
+        0 0 4vw #00f,
+        0 0 8vw #00f;
+}
+
 body {
     background: #000019;
     display: flex;
@@ -66,15 +84,7 @@ body {
 h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 0.1vw #ccc,
-                 0 0 0.3vw #ccc,
-                 0 0 0.6vw #ccc,
-                 0 0 1.5vw #080826,
-                 0 0 3vw #080826,
-                 0 0 6vw #080826,
-                 0 0 0.1vw #080826,
-                 0 0 0.3vw #080826,
-                 0 0 0.6vw #080826;
+    text-shadow: var(--text-shadow-default);
 }
 
 #tema {
@@ -92,28 +102,12 @@ h1 {
 }
 
 #tema:hover {
-    box-shadow: 0 0 0.1vw #ccc,
-    0 0 0.3vw #ccc,
-    0 0 0.6vw #ccc,
-    0 0 1.5vw #080826,
-    0 0 3vw #080826,
-    0 0 6vw #080826,
-    0 0 0.1vw #080826,
-    0 0 0.3vw #080826,
-    0 0 0.6vw #080826;
+    box-shadow: var(--text-shadow-hover);
 }
 
 #tema:focus {
     border-color: #a0a0a0;
-    box-shadow: 0 0 0.1vw #ccc,
-    0 0 0.3vw #ccc,
-    0 0 0.6vw #ccc,
-    0 0 1.5vw #080826,
-    0 0 3vw #080826,
-    0 0 6vw #080826,
-    0 0 0.1vw #080826,
-    0 0 0.3vw #080826,
-    0 0 0.6vw #080826;
+    box-shadow: var(--text-shadow-default);
     background-color: #0a0a32;
     opacity: 0.8;
 }
@@ -143,16 +137,7 @@ h1 {
 }
 
 .dificuldade label:hover {
-    text-shadow: 0 0 0.1vw #ccc,
-                 0 0 0.3vw #ccc,
-                 0 0 0.6vw #ccc,
-                 0 0 1.5vw #080826,
-                 0 0 3vw #080826,
-                 0 0 6vw #080826,
-                 0 0 0.1vw #080826,
-                 0 0 0.3vw #080826,
-                 0 0 0.6vw #080826;
-
+    text-shadow: var(--text-shadow-hover);
 }
 
 
@@ -178,15 +163,7 @@ button:hover {
     border-color: #a0a0a0;
     background-color: #0a0a32;
     cursor: pointer;
-    text-shadow: 0 0 0.1vw #ccc,
-    0 0 0.3vw #ccc,
-    0 0 0.6vw #ccc,
-    0 0 1.5vw #080826,
-    0 0 3vw #080826,
-    0 0 6vw #080826,
-    0 0 0.1vw #080826,
-    0 0 0.3vw #080826,
-    0 0 0.6vw #080826;
+    text-shadow: var(--text-shadow-hover);
 }
 
 button:active {
@@ -206,57 +183,21 @@ button:active {
     justify-content: center;
     align-items: center;
     color: #fff;
-    text-shadow: 
-        0 0 0.1vw #ccc,
-        0 0 0.3vw #ccc,
-        0 0 0.6vw #ccc,
-        0 0 1.5vw #080826,
-        0 0 3vw #080826,
-        0 0 6vw #080826,
-        0 0 0.1vw #080826,
-        0 0 0.3vw #080826,
-        0 0 0.6vw #080826;
+    text-shadow: var(--text-shadow-hover);
     animation: brilho 1s infinite alternate ease-in-out;
 }
 
 @keyframes brilho {
     0% {
-        text-shadow: 
-            0 0 0.1vw #ccc,
-            0 0 0.3vw #ccc,
-            0 0 0.6vw #ccc,
-            0 0 1.5vw #080826,
-            0 0 3vw #080826,
-            0 0 6vw #080826,
-            0 0 0.1vw #080826,
-            0 0 0.3vw #080826,
-            0 0 0.6vw #080826;
+        text-shadow: var(--text-shadow-default);
         opacity: 1;
     }
     50% {
-        text-shadow: 
-            0 0 0.2vw #fff,
-            0 0 0.5vw #fff,
-            0 0 1vw #fff,
-            0 0 2vw #00f,
-            0 0 4vw #00f,
-            0 0 8vw #00f,
-            0 0 0.2vw #00f,
-            0 0 0.5vw #00f,
-            0 0 1vw #00f;
+        text-shadow: var(--text-shadow-default);
         opacity: 0.8;
     }
     100% {
-        text-shadow: 
-            0 0 0.1vw #ccc,
-            0 0 0.3vw #ccc,
-            0 0 0.6vw #ccc,
-            0 0 1.5vw #080826,
-            0 0 3vw #080826,
-            0 0 6vw #080826,
-            0 0 0.1vw #080826,
-            0 0 0.3vw #080826,
-            0 0 0.6vw #080826;
+        text-shadow: var(--text-shadow-default);
         opacity: 1;
     }
 }
@@ -306,47 +247,32 @@ button:active {
     align-items: center;
     justify-content: center;
     width: 50%;
-    margin: 0 auto; /* Centraliza horizontalmente */
+    margin: 0 auto;
     padding: 1.25rem;
-    margin-top: -1.5rem;
     outline: none;
     background: none;
     color: #fff;
     font-size: 1rem;
     transition: text-shadow 0.3s ease;
     text-align: center;
+    z-index: 1;
 }
+
 
 .resultadoContainer h2 {
     font-size: 2rem;
-    text-shadow: 0 0 0.1vw #ccc,
-                 0 0 0.3vw #ccc,
-                 0 0 0.6vw #ccc,
-                 0 0 1.5vw #080826,
-                 0 0 3vw #080826,
-                 0 0 6vw #080826,
-                 0 0 0.1vw #080826,
-                 0 0 0.3vw #080826,
-                 0 0 0.6vw #080826;
+    text-shadow: var(--text-shadow-default);
     margin-bottom: 1.25em;
 }
 
 .resultadoContainer p {
     font-size: 1rem;
     margin: 0.6rem 0rem;
-    text-shadow: 0 0 0.1vw #ccc,
-                 0 0 0.3vw #ccc,
-                 0 0 0.6vw #ccc,
-                 0 0 1.5vw #080826,
-                 0 0 3vw #080826,
-                 0 0 6vw #080826,
-                 0 0 0.1vw #080826,
-                 0 0 0.3vw #080826,
-                 0 0 0.6vw #080826;
+    text-shadow: var(--text-shadow-default);
 }
 
 .resultadoContainer button {
-    margin-top: 1.25rem;
+    margin-top: .25rem;
     border: 0.125rem solid #c3c2c2;
     border-radius: 0.3rem;
     outline: none;
@@ -362,15 +288,7 @@ button:active {
     border-color: #a0a0a0;
     background-color: #0a0a32;
     cursor: pointer;
-    text-shadow: 0 0 0.1vw #ccc,
-    0 0 0.3vw #ccc,
-    0 0 0.6vw #ccc,
-    0 0 1.5vw #080826,
-    0 0 3vw #080826,
-    0 0 6vw #080826,
-    0 0 0.1vw #080826,
-    0 0 0.3vw #080826,
-    0 0 0.6vw #080826;
+    text-shadow: var(--text-shadow-hover);
 }
 
 

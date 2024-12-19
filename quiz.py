@@ -78,8 +78,6 @@ def quiz():
             }
             for pergunta in quiz_data_raw
         ]
-        
-        
         # Retornando o JSON estruturado
         print(quiz_data)
         return jsonify(quiz_data), 200

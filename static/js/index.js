@@ -1,6 +1,8 @@
 document.getElementById("formQuiz").addEventListener("submit", async function (event) {
     event.preventDefault(); // Previne o recarregamento da página
 
+    document.getElementById('reiniciarQuizBtn').addEventListener('click', resetQuiz);
+
     let quizData = [];
     let perguntaAtual = 0;
     let acertos = 0;
@@ -135,8 +137,8 @@ document.getElementById("formQuiz").addEventListener("submit", async function (e
         errosElement.textContent = `Erros: ${erros}`;
     }
 
-    function reiniciarQuiz() {
-        const button = document.getElementById('reiniciarQuizButton');
+    function resetQuiz() {
+        const button = document.getElementById('reiniciarQuizBtn');
         if (button) {
             console.log('Botão encontrado!');
             // Exibir o formulário
