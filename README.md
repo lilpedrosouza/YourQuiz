@@ -2,7 +2,7 @@
 
 YourQuiz é uma aplicação web interativa que gera quizzes personalizados com base no tema e no nível de dificuldade escolhido pelo usuário. O projeto utiliza Flask no backend e integra a API da OpenAI para gerar as perguntas e respostas dinamicamente.
 
-![YourQuiz](YourQuiz/YourQuiz-Made-with-Clipchamp.gif)
+![YourQuiz](YourQuiz-Made-with-Clipchamp.gif)
 
 ## Tecnologias Utilizadas
 
